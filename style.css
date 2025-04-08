@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    user-select: none;
+}
+
+body {
+    background: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 20px;
+    color: #333;
+    transition: background 0.3s ease, color 0.3s ease; /* Płynne przejścia */
+}
+
+body.dark-mode {
+    background: #2c2c2c;
+    color: #f4f4f9;
+}
+
+header {
+    background-color: white;
+    padding: 10px 0px;
+    text-align: center;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease; /* Płynna zmiana tła */
+}
+
+body.dark-mode header {
+    background-color: #333;
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+header ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 12px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 5px;
+}
+
+body.dark-mode header ul li a {
+    color: #f4f4f9;
+}
+
+header ul li a:hover {
+    background-color: #3498db;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.5);
+}
+
+body.dark-mode header ul li a:hover {
+    background-color: #2980b9;
+}
+
+#darkModeToggle {
+    cursor: pointer;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+#darkModeToggle i {
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease; /* Płynne przejście koloru */
+}
+
+body.dark-mode #darkModeToggle i {
+    color: #f4f4f9;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    transition: color 0.3s ease; /* Płynne przejście koloru */
+}
+
+body.dark-mode h1 {
+    color: #f4f4f9;
+}
+
+p {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode p {
+    background: #444;
+    color: #f4f4f9;
+}
+
+form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+form:hover {
+    transform: scale(1.02);
+}
+
+body.dark-mode form {
+    background: #444;
+    color: #f4f4f9;
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+body.dark-mode label {
+    color: #f4f4f9;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode input[type="text"] {
+    background-color: #555;
+    color: #f4f4f9;
+    border-color: #777;
+}
+
+input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+body.dark-mode input[type="text"]:focus {
+    border-color: #3498db;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+body.dark-mode button:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+}
+
+body.dark-mode p {
+    color: #ddd;
+}
+
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+        width: 90%;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}

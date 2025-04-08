@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator zużycia gazu</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="przekruj-przewodu-spawalniczego.html">Przekrój przewodu spawalniczego</a></li>
+            <li><a href="zuzycie-drutu-elektrodowego.html">Zużycie drutu elektrodowego</a></li>
+            <li><a href="zuzycie-gazu.html">Zużycie gazu</a></li>
+            <li><a href="przekroj-spoiny-pachwinowej.html">Przekrój spoiny pachwinowej</a></li>
+            <li><a href=""><i class="fa fa-moon-o" aria-hidden="true" id="darkModeToggle" style="cursor: pointer;"></i></a></li>
+        </ul>
+    </header>
+    <main>
+        <h1>Zużycie gazu</h1>
+        <p>
+            Q – zużycie gazu [kg] <br>
+            G – zużycie drutu elektrodowego [kg] <br>
+            n – współczynnik zależności od średnicy drutu elektrodowego: n = 1,1 <br>
+            Uwaga: Otrzymane wyniki zaokrąglij do jednego miejsca po przecinku.
+        </p><br>
+        <form>
+            <label>G (zużycie drutu elektrodowego) <input type="text" name="G" id="G"></label><br>
+            <label>n (współczynnik) <input type="text" name="n" id="n" value="1.1" disabled></label><br>
+            <button type="button" onclick="oblicz()">Kalkuluj</button>
+            <p id="wynik"></p>
+        </form>
+    </main>
+</body>
+<script>
+function oblicz() {
+    var G = document.getElementById("G").value;
+    var n = 1.1;
+
+    if (G === "" || G === "X") {
+        document.getElementById("wynik").innerHTML = "Proszę wpisać wartość zużycia drutu elektrodowego (G).";
+    } else {
+        G = parseFloat(G);
+        if (isNaN(G)) {
+            document.getElementById("wynik").innerHTML = "Wpisana wartość nie jest liczbą.";
+        } else {
+            var Q = G * n;
+            Q = Q.toFixed(1);
+            document.getElementById("wynik").innerHTML = "Zużycie gazu (Q) wynosi: " + Q + " kg.";
+        }
+    }
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+</html>
+<script src="../main.js"></script>

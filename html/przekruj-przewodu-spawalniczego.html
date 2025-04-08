@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator wzoru</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload="load();">
+    <header>
+        <ul>
+            <li><a href="przekruj-przewodu-spawalniczego.html">Przekrój przewodu spawalniczego</a></li>
+            <li><a href="zuzycie-drutu-elektrodowego.html">Zużycie drutu elektrodowego</a></li>
+            <li><a href="zuzycie-gazu.html">Zużycie gazu</a></li>
+            <li><a href="przekroj-spoiny-pachwinowej.html">Przekrój spoiny pachwinowej</a></li>
+            <li><a href=""><i class="fa fa-moon-o" aria-hidden="true" id="darkModeToggle" style="cursor: pointer;"></i></a></li>
+        </ul>
+    </header>
+    <main>
+        <h1>Przekruj przewodu spawalniczego</h1>
+        <p>
+            S – przekrój przewodu [m²] <br>
+            I – prąd spawania [A] <br>
+            l – długość przewodu [m] <br>
+            ΔU – spadek napięcia [V] <br>
+            γ – przewodność właściwa miedzi [S/m], γ= 58 ∙ 10⁶[S/m] <br>
+            Jeśli chcesz obliczyć jeden z parametrów, wpisz 'X' w polu, które chcesz obliczyć. <br>
+        </p><br>
+        <form>
+            <label>S <input type="text" name="S" id="S"></label><br>
+            <label>L <input type="text" name="L" id="L"></label><br>
+            <label>ΔU <input type="text" name="DeltaU" id="DeltaU"></label><br>
+            <label>γ <input type="text" name="Gamma" id="Gamma"></label><br>
+            <label>I <input type="text" name="I" id="I"></label><br>
+            <button type="button" onclick="oblicz()">Kalkuluj</button>
+            <p id="wynik"></p>
+        </form>
+    </main>
+</body>
+<script>
+var s = document.getElementById("S").value;
+var l = document.getElementById("L").value;
+var deltau = document.getElementById("DeltaU").value;
+var gamma = document.getElementById("Gamma").value;
+var i = document.getElementById("I").value;
+
+var wzorS = (2 * parseFloat(i) * parseFloat(l)) / (parseFloat(deltau) * parseFloat(gamma));
+var wzorL = (parseFloat(s) * parseFloat(deltau) * parseFloat(gamma)) / (2 * parseFloat(i));
+var wzorDeltaU = (2 * parseFloat(i) * parseFloat(l)) / (parseFloat(s) / parseFloat(gamma));
+var wzorGamma = (2 * parseFloat(i) * parseFloat(l)) / (parseFloat(s) / parseFloat(deltau));
+var wzorI = (parseFloat(s) * parseFloat(deltau) * parseFloat(gamma)) / (2 * parseFloat(l));
+
+var wynik = document.getElementById("wynik");
+
+function oblicz() {
+    var s = document.getElementById("S").value;
+    var l = document.getElementById("L").value;
+    var deltau = document.getElementById("DeltaU").value;
+    var gamma = document.getElementById("Gamma").value;
+    var i = document.getElementById("I").value;
+
+    s = (s === "X" || s === "") ? "X" : parseFloat(s);
+    l = (l === "X" || l === "") ? "X" : parseFloat(l);
+    deltau = (deltau === "X" || deltau === "") ? "X" : parseFloat(deltau);
+    gamma = (gamma === "X" || gamma === "") ? "X" : parseFloat(gamma);
+    i = (i === "X" || i === "") ? "X" : parseFloat(i);
+
+    if (s === "X" || l === "X" || deltau === "X" || gamma === "X" || i === "X") {
+        if (s === "X") {
+            var wzorS = (2 * i * l) / (deltau * gamma);
+            wynik.innerHTML = "Wynik dla wzoru S: " + wzorS;
+        }
+        else if (l === "X") {
+            var wzorL = (s * deltau * gamma) / (2 * i);
+            wynik.innerHTML = "Wynik dla wzoru L: " + wzorL;
+        }
+        else if (deltau === "X") {
+            var wzorDeltaU = (2 * i * l) / (s / gamma);
+            wynik.innerHTML = "Wynik dla wzoru DeltaU: " + wzorDeltaU;
+        }
+        else if (gamma === "X") {
+            var wzorGamma = (2 * i * l) / (s / deltau);
+            wynik.innerHTML = "Wynik dla wzoru Gamma: " + wzorGamma;
+        }
+        else if (i === "X") {
+            var wzorI = (s * deltau * gamma) / (2 * l);
+            wynik.innerHTML = "Wynik dla wzoru I: " + wzorI;
+        }
+    }
+    else {
+        wynik.innerHTML = "Aby obliczyć wynik, musisz wpisać 'X' w jednym z pól.";
+    }
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+</html>
+<script src="../main.js"></script>

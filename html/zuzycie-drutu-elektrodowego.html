@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator wzoru</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="przekruj-przewodu-spawalniczego.html">Przekrój przewodu spawalniczego</a></li>
+            <li><a href="zuzycie-drutu-elektrodowego.html">Zużycie drutu elektrodowego</a></li>
+            <li><a href="zuzycie-gazu.html">Zużycie gazu</a></li>
+            <li><a href="przekroj-spoiny-pachwinowej.html">Przekrój spoiny pachwinowej</a></li>
+            <li><a href=""><i class="fa fa-moon-o" aria-hidden="true" id="darkModeToggle" style="cursor: pointer;"></i></a></li>
+        </ul>
+    </header>
+    <main>
+        <h1>Zużycie drutu elektrodowego </h1>
+        <p>
+            G - zużycie drutu elektrodowego [kg] <br>
+            S - przekrój spoiny [mm2] <br>
+            l - sumaryczna długość spoin [mm] <br>
+            γ - gęstość drutu [kg/mm3] <br>
+            k - współczynnik uwzględniający straty na rozprysk ciekłego metalu <br>
+            Uwaga: przy braku strat k = 1,0, przy stratach 50% współczynnik k = 1,5 <br>
+            Jeśli chcesz obliczyć jeden z parametrów, wpisz 'X' w polu, które chcesz obliczyć. <br>
+        </p><br>
+        <form>
+            <label>G <input type="text" name="G" id="G"></label><br>
+            <label>S <input type="text" name="S" id="S"></label><br>
+            <label>l <input type="text" name="l" id="l"></label><br>
+            <label>γ <input type="text" name="γ" id="γ"></label><br>
+            <label>k <input type="text" name="k" id="k"></label><br>
+            <button type="button" onclick="oblicz()">Kalkuluj</button>
+            <p id="wynik"></p>
+        </form>
+    </main>
+</body>
+<script>
+function oblicz() {
+    var s = document.getElementById("S").value;
+    var l = document.getElementById("l").value;
+    var gamma = document.getElementById("γ").value;
+    var k = document.getElementById("k").value;
+
+    if (s.toUpperCase() === "X") s = null;
+    if (l.toUpperCase() === "X") l = null;
+    if (gamma.toUpperCase() === "X") gamma = null;
+    if (k.toUpperCase() === "X") k = null;
+
+    var G = null;
+
+    if (s && l && gamma && k) {
+        G = s * l * gamma * k;
+        document.getElementById("G").value = G.toFixed(4);
+        document.getElementById("wynik").innerHTML = "Zużycie drutu elektrodowego (G) wynosi: " + G.toFixed(4) + " kg.";
+    }
+    else if (s === null) {
+        if (l && gamma && k) {
+            G = parseFloat(l) * parseFloat(gamma) * parseFloat(k);
+            s = G / (parseFloat(l) * parseFloat(gamma) * parseFloat(k));
+            document.getElementById("S").value = s.toFixed(4);
+            document.getElementById("wynik").innerHTML = "Przekrój spoiny (S) wynosi: " + s.toFixed(4) + " mm².";
+        } else {
+            document.getElementById("wynik").innerHTML = "Wprowadź brakujące dane.";
+        }
+    } else if (l === null) {
+        if (s && gamma && k) {
+            G = parseFloat(s) * parseFloat(gamma) * parseFloat(k);
+            l = G / (parseFloat(s) * parseFloat(gamma) * parseFloat(k));
+            document.getElementById("l").value = l.toFixed(4);
+            document.getElementById("wynik").innerHTML = "Długość spoiny (l) wynosi: " + l.toFixed(4) + " mm.";
+        } else {
+            document.getElementById("wynik").innerHTML = "Wprowadź brakujące dane.";
+        }
+    } else if (gamma === null) {
+        if (s && l && k) {
+            G = parseFloat(s) * parseFloat(l) * parseFloat(k);
+            gamma = G / (parseFloat(s) * parseFloat(l) * parseFloat(k));
+            document.getElementById("γ").value = gamma.toFixed(4);
+            document.getElementById("wynik").innerHTML = "Gęstość drutu (γ) wynosi: " + gamma.toFixed(4) + " kg/mm³.";
+        } else {
+            document.getElementById("wynik").innerHTML = "Wprowadź brakujące dane.";
+        }
+    } else if (k === null) {
+        if (s && l && gamma) {
+            G = parseFloat(s) * parseFloat(l) * parseFloat(gamma);
+            k = G / (parseFloat(s) * parseFloat(l) * parseFloat(gamma));
+            document.getElementById("k").value = k.toFixed(4);
+            document.getElementById("wynik").innerHTML = "Współczynnik straty (k) wynosi: " + k.toFixed(4);
+        } else {
+            document.getElementById("wynik").innerHTML = "Wprowadź brakujące dane.";
+        }
+    } else {
+        document.getElementById("wynik").innerHTML = "Wprowadź 'X' w jednym z pól, aby obliczyć wartość.";
+    }
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+</html>
+<script src="../main.js"></script>
