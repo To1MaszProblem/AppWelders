@@ -20,7 +20,7 @@ Aplikacja oszacowuje zużycie drutu elektrodowego w zależności od długości s
 ### 4. Zużycie gazu
 Na podstawie parametrów spawania i długości spoiny, aplikacja wylicza szacunkowe zużycie gazu, co ułatwia kontrolowanie kosztów podczas procesu spawania.
 
-### 4. Tryb ciemny
+### 5. Tryb ciemny
 Na stronie pojawia sie przycisk dzięki któremu zmienisz tryb na ciemny
 
 ## Instalacja
