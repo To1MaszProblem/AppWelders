@@ -22,5 +22,3 @@ Na podstawie parametrów spawania i długości spoiny, aplikacja wylicza szacunk
 
 ### 5. Tryb ciemny
 Na stronie pojawia sie przycisk dzięki któremu zmienisz tryb na ciemny
-
-## Instalacja
