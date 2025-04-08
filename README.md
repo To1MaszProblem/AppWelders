@@ -20,12 +20,6 @@ Aplikacja oszacowuje zużycie drutu elektrodowego w zależności od długości s
 ### 4. Zużycie gazu
 Na podstawie parametrów spawania i długości spoiny, aplikacja wylicza szacunkowe zużycie gazu, co ułatwia kontrolowanie kosztów podczas procesu spawania.
 
-## Wymagania
-
-Aplikacja została zaprojektowana do działania na systemach Windows, Linux oraz macOS. Wymaga:
-- Python 3.x
-- Biblioteki: `numpy`, `matplotlib`, `tkinter` (dla GUI)
-
 ## Instalacja
 
 1. Sklonuj repozytorium:
