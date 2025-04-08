@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator przekroju spoiny pachwinowej</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="przekruj-przewodu-spawalniczego.html">Przekrój przewodu spawalniczego</a></li>
+            <li><a href="zuzycie-drutu-elektrodowego.html">Zużycie drutu elektrodowego</a></li>
+            <li><a href="zuzycie-gazu.html">Zużycie gazu</a></li>
+            <li><a href="przekroj-spoiny-pachwinowej.html">Przekrój spoiny pachwinowej</a></li>
+            <li><a href=""><i class="fa fa-moon-o" aria-hidden="true" id="darkModeToggle" style="cursor: pointer;"></i></a></li>
+        </ul>
+    </header>
+    <main>
+        <h1>Przekrój spoiny pachwinowej</h1>
+        <p>
+            S – przekrój spoiny pachwinowej [mm²] <br>
+            a – długość boku spoiny [mm] <br>
+            c – nadlew [mm], zakładamy, że c = 1 mm <br>
+            <img src="../legenda.png" alt="legenda">
+        </p><br>
+        <form>
+            <label>a (długość boku spoiny) <input type="text" name="a" id="a"></label><br>
+            <button type="button" onclick="PrzekrojSpoinyPachwinowej()">Kalkuluj</button>
+            <p id="wynik"></p>
+        </form>
+    </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+</html>
+<script src="../main.js"></script>

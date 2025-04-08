@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator wzoru</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload="load();">
+    <header>
+        <ul>
+            <li><a href="przekruj-przewodu-spawalniczego.html">Przekrój przewodu spawalniczego</a></li>
+            <li><a href="zuzycie-drutu-elektrodowego.html">Zużycie drutu elektrodowego</a></li>
+            <li><a href="zuzycie-gazu.html">Zużycie gazu</a></li>
+            <li><a href="przekroj-spoiny-pachwinowej.html">Przekrój spoiny pachwinowej</a></li>
+            <li><a href=""><i class="fa fa-moon-o" aria-hidden="true" id="darkModeToggle" style="cursor: pointer;"></i></a></li>
+        </ul>
+    </header>
+    <main>
+        <h1>Przekruj przewodu spawalniczego</h1>
+        <p>
+            S – przekrój przewodu [m²] <br>
+            I – prąd spawania [A] <br>
+            l – długość przewodu [m] <br>
+            ΔU – spadek napięcia [V] <br>
+            γ – przewodność właściwa miedzi [S/m], γ= 58 ∙ 10⁶[S/m] <br>
+            Jeśli chcesz obliczyć jeden z parametrów, wpisz 'X' w polu, które chcesz obliczyć. <br>
+        </p><br>
+        <form>
+            <label>S <input type="text" name="S" id="S"></label><br>
+            <label>L <input type="text" name="L" id="L"></label><br>
+            <label>ΔU <input type="text" name="DeltaU" id="DeltaU"></label><br>
+            <label>γ <input type="text" name="Gamma" id="Gamma"></label><br>
+            <label>I <input type="text" name="I" id="I"></label><br>
+            <button type="button" onclick="PrzkrujPrzewoduSpawalniczego()">Kalkuluj</button>
+            <p id="wynik"></p>
+        </form>
+    </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+</html>
+<script src="../main.js"></script>
