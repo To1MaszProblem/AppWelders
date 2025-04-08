@@ -24,7 +24,3 @@ Na podstawie parametrów spawania i długości spoiny, aplikacja wylicza szacunk
 Na stronie pojawia sie przycisk dzięki któremu zmienisz tryb na ciemny
 
 ## Instalacja
-
-1. Sklonuj repozytorium:
-   ```bash
-   git clone https://github.com/twoje-repozytorium/spawacz-app.git
