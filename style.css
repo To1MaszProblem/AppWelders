@@ -15,7 +15,7 @@ body {
     flex-direction: column;
     padding: 20px;
     color: #333;
-    transition: background 0.3s ease, color 0.3s ease; /* Płynne przejścia */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode {
@@ -32,7 +32,7 @@ header {
     max-width: 1100px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    transition: background-color 0.3s ease; /* Płynna zmiana tła */
+    transition: background-color 0.3s ease;
 }
 
 body.dark-mode header {
@@ -83,7 +83,7 @@ body.dark-mode header ul li a:hover {
 #darkModeToggle i {
     font-size: 24px;
     color: #333;
-    transition: color 0.3s ease; /* Płynne przejście koloru */
+    transition: color 0.3s ease;
 }
 
 body.dark-mode #darkModeToggle i {
@@ -94,7 +94,7 @@ h1 {
     text-align: center;
     margin-bottom: 30px;
     color: #333;
-    transition: color 0.3s ease; /* Płynne przejście koloru */
+    transition: color 0.3s ease;
 }
 
 body.dark-mode h1 {
